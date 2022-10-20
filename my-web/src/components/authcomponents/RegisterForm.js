@@ -43,6 +43,12 @@ function RegisterForm() {
           value={registerData.firstName}
           onChange={handleChangeInput}
         />
+        {registerData.firstName === '' ||
+        registerData.firstName.trim() === '' ? (
+          <small class="form-text text-muted">firstname is required</small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
@@ -53,6 +59,11 @@ function RegisterForm() {
           value={registerData.lastName}
           onChange={handleChangeInput}
         />
+        {registerData.lastName === '' || registerData.lastName.trim() === '' ? (
+          <small class="form-text text-muted">lastname is required</small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
@@ -63,6 +74,11 @@ function RegisterForm() {
           value={registerData.email}
           onChange={handleChangeInput}
         />
+        {registerData.email === '' || registerData.email.trim() === '' ? (
+          <small class="form-text text-muted">email is required</small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
@@ -73,6 +89,11 @@ function RegisterForm() {
           value={registerData.mobile}
           onChange={handleChangeInput}
         />
+        {registerData.mobile === '' || registerData.mobile.trim() === '' ? (
+          <small class="form-text text-muted">phonenumber is required</small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
@@ -83,6 +104,18 @@ function RegisterForm() {
           value={registerData.password}
           onChange={handleChangeInput}
         />
+        {registerData.password === '' || registerData.password.trim() === '' ? (
+          <small class="form-text text-muted">password is required</small>
+        ) : (
+          ''
+        )}
+        {registerData.password.trim().length < 6 ? (
+          <small class="form-text text-muted">
+            <br></br>password must have atleast 6 digits
+          </small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
@@ -93,6 +126,28 @@ function RegisterForm() {
           value={registerData.confirmPassword}
           onChange={handleChangeInput}
         />
+        {registerData.confirmPassword === '' ||
+        registerData.confirmPassword.trim() === '' ? (
+          <small class="form-text text-muted">
+            confirmPassword is required
+          </small>
+        ) : (
+          ''
+        )}
+        {registerData.confirmPassword !== registerData.password ? (
+          <small class="form-text text-muted">
+            <br></br>confirmPassword must be similar to password
+          </small>
+        ) : (
+          ''
+        )}
+        {registerData.confirmPassword.trim().length < 6 ? (
+          <small class="form-text text-muted">
+            <br></br> confirmPassword must have atleast 6 digits
+          </small>
+        ) : (
+          ''
+        )}
       </div>
 
       <div className="mb-3">

@@ -31,6 +31,14 @@ function LoginForm() {
           value={loginData.emailOrMobile}
           onChange={handleChangeInput}
         />
+        {loginData.emailOrMobile === '' ||
+        loginData.emailOrMobile.trim() === '' ? (
+          <small class="form-text text-muted">
+            Please enter the Email or Mobile Number
+          </small>
+        ) : (
+          ''
+        )}
       </div>
       <div className="mb-3">
         <input
