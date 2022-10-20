@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      Description: {
+      description: {
         type: DataTypes.STRING,
       },
       email: {

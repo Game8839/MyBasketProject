@@ -1,5 +1,5 @@
-const { sequelize } = require('./sequelize/models');
-sequelize.sync({ alter: true });
+// const { sequelize } = require('./sequelize/models');
+// sequelize.sync({ alter: true });
 
 require('dotenv').config();
 const express = require('express');
@@ -10,6 +10,7 @@ const morgan = require('morgan');
 const error = require('./middlewares/error');
 const notFound = require('./middlewares/notFound');
 const authRoute = require('./routes/authRoute');
+const expenseRoute = require('./routes/expenseRoute');
 const authenticate = require('./middlewares/authenticate');
 
 app.use(cors());
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/auth', authRoute);
+app.use('/expense', authenticate, expenseRoute);
 
 app.use(error);
 app.use(notFound);
