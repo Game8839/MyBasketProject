@@ -1,5 +1,5 @@
-// const { sequelize } = require('./sequelize/models');
-// sequelize.sync({ alter: true });
+const { sequelize } = require('./sequelize/models');
+sequelize.sync({ alter: true });
 
 require('dotenv').config();
 const express = require('express');

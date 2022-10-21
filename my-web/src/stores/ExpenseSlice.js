@@ -14,6 +14,7 @@ const ExpenseSlice = createSlice({
     addExpenseData: (state, action) => {
       state.expenses.unshift(action.payload);
     },
+
     removeExpenseData: (state, action) => {
       const idx = state.expenses.findIndex(
         (item) => item?.id === action.payload
@@ -24,8 +25,12 @@ const ExpenseSlice = createSlice({
 });
 
 export default ExpenseSlice.reducer;
-export const { setExpenseData, addExpenseData, removeExpenseData } =
-  ExpenseSlice.actions;
+export const {
+  setExpenseData,
+  addExpenseData,
+  removeExpenseData,
+  resetExpenseData,
+} = ExpenseSlice.actions;
 
 export const fetchMyExpense = () => {
   return async (dispatch) => {
@@ -65,7 +70,7 @@ export const handleCreateExpense = (input) => {
     try {
       const res = await expenseService.createExpense(input);
       console.log(res.data);
-      dispatch(addExpenseData(res.data.createdExpenseRes));
+      await dispatch(addExpenseData(res.data.createdExpenseRes));
     } catch (err) {
       console.log(err);
     }

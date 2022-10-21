@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "Game08082539",
-    "database": "mybusket",
-    "host": "127.0.0.1",
+    "username": "doadmin",
+    "password": "AVNS_s2HzDa7DRdG6STeSOPT",
+    "database": "myExpenseTracker",
+    "host": "game8839-db-do-user-12706938-0.b.db.ondigitalocean.com",
+    "port": "25060",
     "dialect": "mysql"
   },
   "test": {

@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
+
     {
       firstName: {
         type: DataTypes.STRING,
@@ -36,6 +37,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       profileImage: DataTypes.STRING,
       coverImage: DataTypes.STRING,
+    },
+    {
+      indexes: [
+        {
+          unique: true,
+          fields: ['id'],
+        },
+      ],
     },
     { underscored: true }
   );
