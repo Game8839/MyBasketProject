@@ -12,7 +12,12 @@ const createExpenseSlice = createSlice({
       state.createExpenses[action.payload.name] = action.payload.value;
     },
     resetCreateExpenseData: (state, action) => {
-      state = initialState;
+      state.createExpenses = {
+        title: '',
+        description: '',
+        type: '',
+        amount: '',
+      };
     },
   },
 });

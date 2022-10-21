@@ -2,6 +2,11 @@ module.exports = (sequelize, DataTypes) => {
   const Expense = sequelize.define(
     'Expense',
     {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -27,6 +32,15 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+    },
+    {
+      indexes: [
+        // Create a unique index on email
+        {
+          unique: true,
+          fields: ['id'],
+        },
+      ],
     },
     { underscored: true }
   );

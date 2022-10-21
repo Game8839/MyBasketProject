@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCreateExpenseData } from '../../stores/CreateExpenseSlice';
 import { handleCreateExpense } from '../../stores/ExpenseSlice';
+import { resetCreateExpenseData } from '../../stores/CreateExpenseSlice';
 function CreateExpenseForm() {
   const createExpense = useSelector(
     ({ createExpenses: { createExpenses } }) => createExpenses
@@ -18,6 +19,7 @@ function CreateExpenseForm() {
     e.preventDefault();
     try {
       dispatch(handleCreateExpense(createExpense));
+      dispatch(resetCreateExpenseData());
     } catch (err) {
       console.log(err);
     }
